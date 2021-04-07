@@ -1,0 +1,43 @@
+<%= form_with(model: task) do |f| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center"><b>Create a Task</b></h5>
+              <div class="form-label-group">
+
+  <div class="form-group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true, class:'w-100 mb-2 rounded' %>
+  </div>
+    <div class="form-group">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, autofocus: true, class:'w-100 mb-2 rounded' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :deadline %><br />
+    <%= f.datetime_select:deadline, autofocus: true, class:'w-100 mb-2 rounded' %>
+  </div> 
+ <div class="actions">
+ <%= f.submit "Create a Task",class:"btn btn-sm btn-primary btn-block text-uppercase" %>
+  </div>
+  <%= link_to 'Back to My Tasks', tasks_path %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
