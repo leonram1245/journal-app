@@ -1,16 +1,23 @@
 
-
-
-
-
-
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center"><b>My Tasks</b></h5>
-             <%= link_to 'Add a new Task', new_task_path, class:"btn btn-primary mb-2" %>
+            <h5 class="card-title text-center"><b>All Tasks</b></h5>
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">  
+ <li class="breadcrumb-item"> <%= link_to 'Home',tasks_path%></li>
+ <li class="breadcrumb-item active" aria-current="page"> <%= link_to 'Category', categories_path%></li>
+  </ol>
+</nav>
+  <%= link_to 'Add a New Task', new_task_path, class:"btn btn-primary mb-3"%>
+
+           
+        
+
 
 <div class="form-label-group">
 <table class="table">

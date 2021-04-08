@@ -1,4 +1,4 @@
-<%= form_with(model: task) do |f| %>
+<%= form_with(model:[@task.category, @task]) do |f| %>
   <% if task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -19,6 +19,10 @@
               <div class="form-label-group">
 
   <div class="form-group">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id, id: :task_user_id, type: :hidden ,autofocus: true, class:'w-100 mb-2 rounded', value:current_user.id %>
+  </div>
+  <div class="form-group">
     <%= f.label :title %><br />
     <%= f.text_field :title, autofocus: true, class:'w-100 mb-2 rounded' %>
   </div>
@@ -30,10 +34,7 @@
     <%= f.label :deadline %><br />
     <%= f.datetime_select :deadline, autofocus: true, class:'w-100 mb-2 rounded' %>
   </div> 
-  <div class="form-group">
-    <%= f.label :category %><br />
-    <%= f.text_field :category, autofocus: true, class:'w-100 mb-2 rounded' %>
-  </div>
+ 
  <div class="actions">
  <%= f.submit "Create a Task",class:"btn btn-sm btn-primary btn-block text-uppercase" %>
   </div>

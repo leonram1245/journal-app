@@ -12,6 +12,7 @@
   </head>
 
   <body>
+   <%= render 'shared/header' %>
     <% if flash[:notice] %>
       <%= render 'layouts/alerts' %>
     <% end %>
@@ -19,9 +20,6 @@
     <% if flash[:alert] %>
       <%= render 'layouts/alerts' %>
     <% end %>
-  
-    
-    <%= render 'shared/header' %>
     <%= yield %>
       </body>
 </html>
