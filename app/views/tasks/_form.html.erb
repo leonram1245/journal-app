@@ -4,7 +4,7 @@
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
-        <% task.errors.each do |error| %>
+   <% task.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -28,8 +28,12 @@
   </div>
   <div class="form-group">
     <%= f.label :deadline %><br />
-    <%= f.datetime_select:deadline, autofocus: true, class:'w-100 mb-2 rounded' %>
+    <%= f.datetime_select :deadline, autofocus: true, class:'w-100 mb-2 rounded' %>
   </div> 
+  <div class="form-group">
+    <%= f.label :category %><br />
+    <%= f.text_field :category, autofocus: true, class:'w-100 mb-2 rounded' %>
+  </div>
  <div class="actions">
  <%= f.submit "Create a Task",class:"btn btn-sm btn-primary btn-block text-uppercase" %>
   </div>
