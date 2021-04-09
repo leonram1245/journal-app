@@ -1,9 +1,11 @@
 
 <div class = 'container mt-2'>
 <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
-  <%= devise_error_messages! %>
-    <% flash.each do |key, value| %>
-       <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
+  <%= notice %>
+  <%= alert %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 </div>
+
