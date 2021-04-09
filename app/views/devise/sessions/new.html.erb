@@ -8,6 +8,7 @@
               <div class="form-label-group">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'w-100 mb-2 rounded',placeholder:'enter your email' %>

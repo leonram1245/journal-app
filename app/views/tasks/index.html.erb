@@ -26,7 +26,6 @@
       <th scope="col">Title</th>
       <th scope="col">Description
       <th scope="col">Deadline</th>
-       <th scope="col">Category</th>
       <th scope="col"></th>
       <th scope="col"></th>
 
@@ -39,8 +38,7 @@
         <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><%= task.deadline %></td>
-        <td><%= task.category.title %></td>
-        <td><%= link_to 'Show',[@category] %></td>
+        <td><%= link_to 'Show',[@category, task] %></td>
         <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
         <td><%= link_to 'Destroy', [@category, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

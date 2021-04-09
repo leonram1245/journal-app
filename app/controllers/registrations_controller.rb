@@ -1,5 +1,9 @@
 class RegistrationsController<Devise::RegistrationsController
 
+  def temp
+
+  end
+  
 private
 
 def sign_up_params
@@ -17,3 +21,4 @@ def update_resource(resource, params)
   resource.update_without_password(params)
 end
 end
+

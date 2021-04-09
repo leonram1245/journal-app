@@ -1,6 +1,8 @@
    
+<%= form_for(resource, as: resource_name, url: temp_path(resource_name)) do |f| %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+
+ <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
@@ -23,3 +25,4 @@
     <%= f.password_field :current_password, autocomplete: "current-password",class:'w-100 rounded' %>
   </div>
 
+<% end %>
