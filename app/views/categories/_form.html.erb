@@ -1,10 +1,14 @@
 <%= form_with(model: @category) do |f| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+   <% if category.errors.any? %>
+   <% category.errors.each do |error| %>
+   <div class = 'container mt-2'>
+<div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+  <%= error.full_message %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</div>
         <% end %>
       </ul>
     </div>
