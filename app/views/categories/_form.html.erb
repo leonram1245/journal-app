@@ -1,8 +1,7 @@
-<%= form_with(model: category) do |form| %>
+<%= form_with(model: @category) do |f| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
       <ul>
         <% category.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,17 +10,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center"><b>Create Category</b></h5>
+              <div class="form-label-group">
+  <div class="form-group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true, class:'w-100 mb-2 rounded',id:'text' %>
+    <span class="pull-right label label-default" id="count_message"></span>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+ <div class="actions">
+ <%= f.submit "Create Category",class:"btn btn-sm btn-primary btn-block text-uppercase" %>
   </div>
+ <%=link_to 'back to Home',:back%>
 
-  <div class="actions">
-    <%= form.submit %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

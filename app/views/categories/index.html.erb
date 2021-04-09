@@ -4,13 +4,13 @@
       <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center"><b>All Categories</b></h5>
+            <h5 class="card-title text-center"><b>My Planner</b></h5>
 
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">  
- <li class="breadcrumb-item"> <%= link_to 'Home',tasks_path%></li>
- <li class="breadcrumb-item active" aria-current="page"> <%= link_to 'Category', categories_path%></li>
+ <li class="breadcrumb-item"> <%= link_to 'Home',categories_url%></li>
+ <li class="breadcrumb-item active" aria-current="page"> <%= link_to 'Tasks',categories_path%></li>
   </ol>
 </nav>
   <%= link_to 'Add a New Category', new_category_path, class:"btn btn-primary mb-3"%>
@@ -19,11 +19,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Category id</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
+      <th scope="col">Category Name</th>
       <th scope="col"></th>
-      <th scope="col">Options</th>
+       <th scope="col"></th>
+        <th scope="col">Options</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
@@ -31,16 +30,16 @@
   <tbody>
       <% @categories.each do |category| %>
       <tr>
-        <td><%= category.id %></td>
+      <%if category.user == current_user%>
         <td><%= category.title %></td>
-        <td><%= category.description %></td>
-        <td><%= link_to 'View All Tasks', category %></td>
+        <td><%= link_to 'Add a new Task',new_category_task_path(category) %></td>
+        <td><%= link_to 'View All Task',category_tasks_path(category) %></td>
         <td><%= link_to 'Edit Category', edit_category_path(category) %></td>
         <td><%= link_to 'Delete Category', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td></td>
          </tr>
        <% end %>
-   
+       <%end%>
 </table>
 
 
