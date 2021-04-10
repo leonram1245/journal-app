@@ -10,6 +10,7 @@ gem "bootstrap_form", "~> 4.0"
 gem 'bootstrap', '~> 4.6'
 gem 'jquery-rails'
 gem 'devise', '~> 4.7', '>= 4.7.3'
+
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -35,6 +36,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
 end
 
 group :development do
@@ -48,6 +50,7 @@ group :development do
   gem 'spring'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
 end
 
 
