@@ -1,6 +1,5 @@
 class TaskviewsController < ApplicationController
-
   def index
-    @tasks = Task.all
+@tasks = Task.all
   end
 end

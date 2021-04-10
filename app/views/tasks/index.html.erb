@@ -28,6 +28,7 @@
       <th scope="col">Deadline</th>
       <th scope="col"></th>
       <th scope="col"></th>
+       <th scope="col"></th>
 
     </tr>
   </thead>
@@ -36,7 +37,7 @@
         <%if task.category.user == current_user%>
       <tr>
         <td><%= task.title %></td>
-        <td><%= task.description %></td>
+        <td><%= truncate(task.description, length: 17, separator: ' ') %></td>
         <td><%= task.deadline %></td>
         <td><%= link_to 'Show',[@category, task] %></td>
         <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>

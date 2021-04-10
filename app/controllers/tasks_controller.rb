@@ -13,6 +13,11 @@ class TasksController < ApplicationController
   def show
   end
 
+  def view
+
+  end
+
+
   # GET /tasks/new
   def new
     @task = @category.tasks.build
