@@ -1,12 +1,9 @@
-
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center"><b>My Planner</b></h5>
-
-
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">  
  <li class="breadcrumb-item"> <%= link_to 'Home',categories_url%></li>
@@ -14,22 +11,21 @@
   </ol>
 </nav>
   <%= link_to 'Add a New Category', new_category_path, class:"btn btn-primary mb-3"%>
-
 <div class="form-label-group">
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Category Name</th>
       <th scope="col"></th>
-       <th scope="col"></th>
-        <th scope="col">Options</th>
+      <th scope="col"></th>
+      <th scope="col">Options</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
       <% @categories.each do |category| %>
-      <tr>
+    <tr>
       <%if category.user == current_user%>
         <td><%= category.title %></td>
         <td><%= link_to 'Add a new Task',new_category_task_path(category) %></td>
@@ -37,16 +33,11 @@
         <td><%= link_to 'Edit Category', edit_category_path(category) %></td>
         <td><%= link_to 'Delete Category', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td></td>
-         </tr>
+     </tr>
        <% end %>
        <%end%>
 </table>
-
-
   </div>
-
-
-
           </div>
         </div>
       </div>

@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_scope :user do
-    get 'temp', to: "devise/registrations#temp"
-end
-  get 'taskviews/index'
   get 'tasks/view'
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :categories do 

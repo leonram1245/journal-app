@@ -1,4 +1,4 @@
-<%= form_with(model: @category) do |f| %>
+<%= simple_form_for @category do |f| %>
    <% if category.errors.any? %>
    <% category.errors.each do |error| %>
    <div class = 'container mt-2'>
@@ -22,12 +22,10 @@
             <h5 class="card-title text-center"><b>Create Category</b></h5>
               <div class="form-label-group">
   <div class="form-group">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, autofocus: true, class:'w-100 mb-2 rounded',id:'text' %>
-    <span class="pull-right label label-default" id="count_message"></span>
+  <%= f.input :title,  label:'title', class: 'w-100 mb-2 rounded'  %>
   </div>
  <div class="actions">
- <%= f.submit "Create Category",class:"btn btn-sm btn-primary btn-block text-uppercase" %>
+ <%= f.button :submit,class:"btn btn-sm btn-primary btn-block text-uppercase" %>
   </div>
  <%=link_to 'back to Home',:back%>
 
