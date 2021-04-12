@@ -13,19 +13,8 @@ validates :status, inclusion: { in: ['not-started', 'in-progress', 'complete'] }
     ['Complete', 'complete']
   ]
 
-  def badge_color
-    case status
-    when 'not-started'
-      'secondary'
-    when 'in-progress'
-      'info'
-    when 'complete'
-      'success'
-    end
-  end
-
   def complete?
-    status == 'complete'
+    status == 'complete' 
   end
 
   def in_progress?
