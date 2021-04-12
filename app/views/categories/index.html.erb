@@ -7,7 +7,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">  
  <li class="breadcrumb-item"> <%= link_to 'Home',categories_url%></li>
- <li class="breadcrumb-item active" aria-current="page"> <%= link_to 'Tasks',categories_path(@category)%></li>
+ <li class="breadcrumb-item active" aria-current="page"> <%= link_to 'Category',categories_path(@category)%></li>
   </ol>
 </nav>
   <%= link_to 'Add a New Category', new_category_path, class:"btn btn-primary mb-3"%>
@@ -24,6 +24,11 @@
     </tr>
   </thead>
   <tbody>
+  <% if @categories.count == 0 %>
+  <div>
+        <small>No entries found.Add a Category!</small>
+        </div>
+  <%else%>
       <% @categories.each do |category| %>
     <tr>
       <%if category.user == current_user%>
@@ -35,6 +40,7 @@
         <td></td>
      </tr>
        <% end %>
+       <%end%>
        <%end%>
 </table>
   </div>

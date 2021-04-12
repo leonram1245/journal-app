@@ -1,57 +1,31 @@
-
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center"><b><%=@category.title%></h5>
-
-
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">  
  <li class="breadcrumb-item"> <%= link_to 'Home',categories_path%></li>
  <li class="breadcrumb-item active" aria-current="page"> <%= link_to 'Category', categories_path%></li>
   </ol>
 </nav>
-  <%= link_to 'Add a New Task', new_category_task_path, class:"btn btn-primary mb-3"%>
-
-           
-        
-
-
-<div class="form-label-group">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Description
-      <th scope="col">Deadline</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-       <th scope="col"></th>
-
-    </tr>
-  </thead>
-  <tbody>
-      <% @tasks.each do |task| %>
-        <%if task.category.user == current_user%>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= truncate(task.description, length: 17, separator: ' ') %></td>
-        <td><%= task.deadline %></td>
-        <td><%= link_to 'Show',[@category, task] %></td>
-        <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
-        <td><%= link_to 'Destroy', [@category, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-       <%end%>
-    <% end %>
-</table>
-  </div>
-       </div>
+<%= link_to 'Add a New Task', new_category_task_path, class:"btn btn-primary mb-3"%>
+ <% if @tasks.count == 0 %>
+  <div>
+        <small>No entries found.Add a Task!</small>
+        </div>
+  <%else%>
+<%= render 'todaytable', task: @task %>
+<%= render 'pendingtable', task: @task %>
+<%end%>
+        </div>
         </div>
       </div>
     </div>
   </div>
+
+  
 
 
 

@@ -1,6 +1,4 @@
 
-
-
 <p id="notice"><%= notice %></p>
 
 
@@ -10,24 +8,25 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center"><b>Create a Task</b></h5>
-              <div class="form-label-group">
+              <div class="form-label-group">          
 <p>
   <strong>Title:</strong>
   <%= @task.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @task.description %>
 </p>
-
 <p>
   <strong>Deadline:</strong>
   <%= @task.deadline %>
 </p>
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
 
 <%= link_to 'Back', :back %>
-
 
                  </div>
         </div>

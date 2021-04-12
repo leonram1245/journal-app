@@ -7,7 +7,7 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center"><b>Create a Task</b></h5>
+            <h5 class="card-title text-center"><b>Task Details</b></h5>
               <div class="form-label-group">          
 <p>
   <strong>Title:</strong>
@@ -17,10 +17,13 @@
   <strong>Description:</strong>
   <%= @task.description %>
 </p>
-
 <p>
   <strong>Deadline:</strong>
   <%= @task.deadline %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
 </p>
 
 <%= link_to 'Back', :back %>

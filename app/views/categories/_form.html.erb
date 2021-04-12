@@ -22,13 +22,12 @@
             <h5 class="card-title text-center"><b>Create Category</b></h5>
               <div class="form-label-group">
   <div class="form-group">
-  <%= f.input :title,  label:'title', class: 'w-100 mb-2 rounded'  %>
+  <%= f.input :title,  label:false, class: 'w-100 mb-2 rounded' ,placeholder:"title" %>
   </div>
  <div class="actions">
  <%= f.button :submit,class:"btn btn-sm btn-primary btn-block text-uppercase" %>
   </div>
  <%=link_to 'back to Home',:back%>
-
           </div>
         </div>
       </div>

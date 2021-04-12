@@ -1,4 +1,18 @@
 <%= simple_form_for [@task.category,@task] do |f| %>
+ <% if task.errors.any? %>
+   <% task.errors.each do |error| %>
+   <div class = 'container mt-2'>
+<div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+  <%= error.full_message %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</div>
+<% end %>
+   </ul>
+    </div>
+  <% end %>
 
 <div class="container">
     <div class="row">
@@ -8,26 +22,28 @@
             <h5 class="card-title text-center"><b>Create a Task</b></h5>
               <div class="form-label-group">
   <div class="form-group">
-  <%= f.input :title,  label:'title', class: 'w-100 mb-2 rounded'  %>
+  <%= f.input :title,  label:false ,class: 'w-100 mb-2 rounded',placeholder:"title"  %>
   </div>
   <div class="form-group">
-  <%= f.input :description,as: :text,  label:'description', class: 'w-100 mb-2 rounded'  %>
+  <%= f.input :description,as: :text,  label:'description', label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'},
+  placeholder:"write your message here....", class: 'w-100 mb-2 rounded'  %>
   </div>
-  <div class="form-group">
+  <div class="form-group" >
+  <i class="far fa-calendar"></i>
   <%= f.text_field :deadline, label:'deadline', class: 'w-100 mb-2 rounded', placeholder:"enter desired date",
    data: {
       controller: "flatpickr",
-      flatpickr_date_format: "Y-m-d",
+      flatpickr_alt_format: t("date.formats.long"),
+      flatpickr_date_format: "%B %d %Y",
       flatpickr_min_date: Time.zone.now
-    } 
-
-    %>
+    } %> </div>
+   <div class="form-group">
+    <%= f.label :status %><br />
+    <%= f.select :status, Task::STATUS_OPTIONS, {},class: 'w-100 mb-2 rounded' %>
   </div>
  <div class="actions">
  <%= f.button :submit,class:"btn btn-sm btn-primary btn-block text-uppercase" %>
   </div>
- <%=link_to 'back to Home',:back%>
-
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = @category.tasks
+    @tasks = @category.tasks.sort_by{ |t| [t.deadline.to_date,t.status] }  
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -76,6 +76,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :category_id, :deadline)
+      params.require(:task).permit(:title, :description, :category_id, :status, :deadline)
     end
 end

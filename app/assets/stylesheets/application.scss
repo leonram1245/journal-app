@@ -14,8 +14,13 @@
  */
  @import "bootstrap";
  @import "rails_bootstrap_forms";
-
-
+ .fa-calendar {    
+  float: right;
+  top: 24px;
+  right: 6px;
+  position: relative;
+  z-index: 2;
+}
 
   .card-signin {
     border: 0;

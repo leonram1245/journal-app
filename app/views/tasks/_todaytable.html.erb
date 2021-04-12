@@ -1,0 +1,35 @@
+
+
+<p class="h5 text-center">Today's Tasks</p>
+<div class="form-label-group">
+<table class="table text-justify text-center ">
+  <thead>
+    <tr>
+      <th scope="col text-center">Title</th>
+      <th scope="col text-center">Description
+      <th scope="col text-center">Deadline</th>
+      <th scope="col text-center">status</th>
+      <th scope="col text-center"></th>
+      <th scope="col text-center"></th>
+      <th scope="col text-center"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @tasks.each do |task| %>
+        <%if task.category.user == current_user%>
+       <%if task.deadline.to_date == Date.today%>
+      <tr>
+        <td ><%= task.title %></td>
+        <td><%= truncate(task.description, length: 17, separator: ' ') %></td>
+        <td><%= task.deadline %></td>
+        <td><%= task.status %></td>
+        <td><%= link_to 'Show',[@category, task] %></td>
+        <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
+        <td><%= link_to 'Destroy', [@category, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <%end%>     
+    <% end %>
+      <% end %>
+
+</table>
+  </div>

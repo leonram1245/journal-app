@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'tasks/view'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :categories do 
    resources :tasks
+     get 'tasks/view'
+
   end
   devise_scope :user do
     authenticated :user do
