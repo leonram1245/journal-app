@@ -4,26 +4,25 @@ class Task < ApplicationRecord
     validates :description, presence: true
     validates :deadline, presence: true
 
+    validates :status, inclusion: { in: ['not-started', 'in-progress', 'complete'] }
 
-validates :status, inclusion: { in: ['not-started', 'in-progress', 'complete'] }
+    STATUS_OPTIONS = [
+      ['Not started', 'not-started'],
+      ['In progress', 'in-progress'],
+      ['Complete', 'complete']
+    ]
 
-  STATUS_OPTIONS = [
-    ['Not started', 'not-started'],
-    ['In progress', 'in-progress'],
-    ['Complete', 'complete']
-  ]
+    def complete?
+      status == 'complete' 
+    end
 
-  def complete?
-    status == 'complete' 
-  end
+    def in_progress?
+      status == 'in-progress'
+    end
 
-  def in_progress?
-    status == 'in-progress'
-  end
-
-  def not_started?
-    status == 'not-started'
-  end
+    def not_started?
+      status == 'not-started'
+    end
 
 
 end
